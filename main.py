@@ -24,7 +24,7 @@ try:
 					print ('Port %d: OPEN' % (i,))
 				s.close()
 		else:
-			target_port = input("Enter the target port: ")
+			target_port = int (input("Enter the target port: "))
 			t_IP = gethostbyname(target)
 			print ('Starting scan on host: ', t_IP)
 			print("Scanning started at:" + str(datetime.now()))
@@ -35,13 +35,4 @@ try:
 			s.close()
 except KeyboardInterrupt:
 	print("You have pressed ctrl+c")
-	s.exit()
-except socket.gaierror:
-	print ("Hostname could not be resolved. Exiting")
-	s.exit()
-
-except socket.error:
-	print ("Couldn't connect to server")
-	s.exit()
-
 print('Time taken:', time.time() - startTime)
